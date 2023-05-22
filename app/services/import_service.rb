@@ -19,6 +19,7 @@ class ImportService
 
         new_product = Product.create(product_attributes(product))
         new_product.update(product_updated_attributes(new_product.url))
+        puts "Imported: #{import_count}"
       end
       page += 1
     end
@@ -44,18 +45,18 @@ class ImportService
       status: "draft",
       url: "https://world.openfoodfacts.org/product/#{product['code']}",
       product_name: product['product_name'],
-      image_url: product['image_url'],
-      quantity: product['quantity'],
-      packaging: product['packaging'],
-      categories: product['categories'],
-      brands: product['brands']
+      image_url: product['image_url']
     }
   end
 
   def product_updated_attributes(new_product_url)
     document = Nokogiri::HTML(URI.open(new_product_url))
     {
-      barcode: document.css('#barcode_paragraph').first.content.strip.gsub("Barcode:  ",""),
+      barcode: document.css('#barcode_paragraph').first.content&.strip.gsub("Barcode:  ",""),
+      quantity:  document.css('#field_quantity_value').first&.content,
+      packaging: document.css('#field_packaging_value').first&.content,
+      categories: document.css('#field_categories_value').first&.content,
+      brands: document.css('#field_brands_value').first&.content,
       status: "imported",
       imported_t: DateTime.now,
     }
