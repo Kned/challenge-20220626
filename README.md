@@ -1,24 +1,30 @@
-# README
+# Challenge 20220626
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+- Este projeto disponibiliza algumas informacões sobre produtos extraidos do https://world.openfoodfacts.org/ em uma simples api REST
+- Também possui um cron que faz diáriamente atualizacão dos produtos importados.
 
-Things you may want to cover:
+# Tecnologias Utilizadas
 
-* Ruby version
+- Ruby 3.1.2
+- Rails 7
+- Sidekiq
+- Sidekiq-Scheduler
+- Redis
 
-* System dependencies
+# Dependencias
 
-* Configuration
+- Ruby 3.1.2p20
+- MongoDB 4.4.4
+- Redis Server 7.0.11
 
-* Database creation
+# Instalacão
 
-* Database initialization
+- $bundle install
+- $bundle exec rake database:import
 
-* How to run the test suite
+# Rodando Projeto
 
-* Services (job queues, cache servers, search engines, etc.)
+- $bundle exec sidekiq
+- $rails s
 
-* Deployment instructions
-
-* ...
+This is a challenge by Coodesh

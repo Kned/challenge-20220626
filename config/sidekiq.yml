@@ -1,0 +1,5 @@
+:scheduler:
+  :schedule:
+    ImportUpdate:
+      cron: "0 0 0 * * *" # Will run everyday at midnight for default
+      class: ImportUpdate

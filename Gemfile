@@ -19,6 +19,10 @@ gem 'nokogiri', '~> 1.15', '>= 1.15.1'
 gem 'kaminari', '~> 0.17.0'
 gem 'kaminari-mongoid'
 
+# Use to run the crons
+gem 'sidekiq', '~> 7.1.0'
+gem 'sidekiq-scheduler', '~> 5.0.2'
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 

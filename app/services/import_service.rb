@@ -14,13 +14,11 @@ class ImportService
       products.each do |product|
         return true if import_count == import_max
   
-        puts "Importing: #{import_count} code:#{product['code']}"
         import_count += 1
         next if Product.where(code: product['code']).count > 0
 
         new_product = Product.create(product_attributes(product))
         new_product.update(product_updated_attributes(new_product.url))
-        puts "Imported: #{import_count}"
       end
       page += 1
     end
