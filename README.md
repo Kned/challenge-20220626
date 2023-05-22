@@ -22,6 +22,7 @@
 - $bundle install
 - $bundle exec rake database:import
 - $rails spec
+- Para configurar o horário da cron basta mudar a cron em config/sidekiq.yml, por default rodará 00:00:00
 
 # Rodando Projeto
 
