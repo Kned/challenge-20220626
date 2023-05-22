@@ -23,7 +23,7 @@ class ProductsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_product
-      @product = Product.where(code: params[:id]).first
+      @product = Product.where(code: params[:code]).first
     end
 
 end

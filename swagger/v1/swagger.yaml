@@ -4,42 +4,44 @@ info:
   title: API V1
   version: v1
 paths:
-  "/products?page={page}&per_page={per_page}":
+  "/products":
     get:
       summary: List Products
       tags:
-        - Products
+      - Products
       parameters:
-        - name: page
-          in: path
-          description: page number
-          required: false
-          schema:
-            type: integer
-        - name: per_page
-          in: path
-          description: results per page
-          required: false
-          schema:
-            type: integer
+      - name: page
+        in: query
+        description: page number
+        required: false
+        schema:
+          type: integer
+      - name: per_page
+        in: query
+        description: results per page
+        require: false
+        schema:
+          type: integer
       responses:
-        "200":
-          description: Products listed
-  "/products/{id}":
-    parameters:
-      - name: id
+        '200':
+          description: products listed
+  "/products/{code}":
+    get:
+      summary: Show Product
+      tags:
+      - Product
+      parameters:
+      - name: code
         in: path
-        description: id
+        description: product code
         required: true
         schema:
           type: string
-    get:
-      summary: show product
       responses:
-        "200":
-          description: Product showed
+        '200':
+          description: find product
 servers:
-  - url: https://{defaultHost}
-    variables:
-      defaultHost:
-        default: www.example.com
+- url: http://{defaultHost}
+  variables:
+    defaultHost:
+      default: localhost:3000

@@ -3,7 +3,7 @@ class Product
   include Mongoid::Timestamps
   validates_uniqueness_of :code
 
-  field :code, type: BSON::ObjectId
+  field :code, type: String
   field :barcode, type: String
   field :status, type: StatusMapping
   field :imported_t, type: DateTime
