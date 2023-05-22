@@ -23,6 +23,8 @@ gem 'kaminari-mongoid'
 gem 'sidekiq', '~> 7.1.0'
 gem 'sidekiq-scheduler', '~> 5.0.2'
 
+gem 'rswag', '~> 2.9.0'
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
@@ -35,6 +37,6 @@ group :development, :test do
 end
 
 group :development do
-  # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
-  # gem "spring"
+  gem "rspec-rails"
+  gem 'rswag-specs', '~> 2.9.0'
 end

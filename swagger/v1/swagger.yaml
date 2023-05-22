@@ -1,0 +1,45 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/products?page={page}&per_page={per_page}":
+    get:
+      summary: List Products
+      tags:
+        - Products
+      parameters:
+        - name: page
+          in: path
+          description: page number
+          required: false
+          schema:
+            type: integer
+        - name: per_page
+          in: path
+          description: results per page
+          required: false
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Products listed
+  "/products/{id}":
+    parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: string
+    get:
+      summary: show product
+      responses:
+        "200":
+          description: Product showed
+servers:
+  - url: https://{defaultHost}
+    variables:
+      defaultHost:
+        default: www.example.com
