@@ -44,7 +44,7 @@ class ImportService
       status: "draft",
       url: "https://world.openfoodfacts.org/product/#{product['code']}",
       product_name: product['product_name'],
-      image_url: product['image_front_url'],
+      image_url: product['image_url'],
       quantity: product['quantity'],
       packaging: product['packaging'],
       categories: product['categories'],
