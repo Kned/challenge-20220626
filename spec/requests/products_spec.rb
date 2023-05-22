@@ -6,7 +6,6 @@ RSpec.describe 'products_controller', type: :request do
       produces 'application/json'
       parameter name: :page, in: :query, type: :integer, description: 'page number', required: false
       parameter name: :per_page, in: :query, type: :integer, description: 'results per page', require: false
-      # request_body_example value: { some_field: 'Foo' }, name: 'basic', summary: 'Request example description'
       response '200', 'products listed' do
         let(:page) { 1 }
         let(:per_page){ 1 }
